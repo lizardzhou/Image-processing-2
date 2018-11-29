@@ -2,7 +2,6 @@ package convolution;
 import java.util.*;
 
 public class convolution {
-	
 	public static Integer[] calcConv(Integer[] fun, Integer[] mask) {
 		Integer[] result = new Integer[fun.length + mask.length - 1];
 		int sum;
@@ -20,9 +19,11 @@ public class convolution {
 		return result;
 			}
 	
-	
-	public static void main(String[] args) {
-		ArrayList<Integer[]> vectorList = new ArrayList<Integer[]>();
+	public static void main(String[] args) {	
+		ArrayList<String> nameList = new ArrayList<String>();
+		nameList.add("Function: ");
+		nameList.add("Mask: ");
+		nameList.add("Result: ");
 		
 		Integer[] fun = new Integer[4];
 		Integer[] mask = new Integer[2];				
@@ -34,12 +35,13 @@ public class convolution {
 		}
 		Integer[] result = calcConv(fun,mask);	//calculate the convolution fun*mask, with mask zero padded
 		
+		ArrayList<Integer[]> vectorList = new ArrayList<Integer[]>();
 		vectorList.add(fun);
 		vectorList.add(mask);
-		vectorList.add(result);
+		vectorList.add(result);	
 		
 		for (int i=0; i<vectorList.size(); i++) {
-			//System.out.println(vectorList.get(i));
+			System.out.print(nameList.get(i));
 			for (int j=0; j<vectorList.get(i).length; j++) {
 				System.out.print(vectorList.get(i)[j] + " ");
 			}
